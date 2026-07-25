@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSS Ripple-Wave Navbar - Creative Portfolio Demo</title>
+  <meta name="description" content="A high-performance, GPU-accelerated CSS Ripple-Wave Navigation Bar for creative portfolio layouts built with pure HTML5 and CSS3 keyframe animations.">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Local Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Pure CSS Mobile Menu Toggle Input -->
+  <input type="checkbox" id="nav-toggle" class="nav-toggle-input" aria-hidden="true">
+
+  <!-- Header & Navigation Component -->
+  <header class="portfolio-header">
+    <nav class="portfolio-navbar" aria-label="Main Navigation">
+      <!-- Logo / Brand Emblem -->
+      <a href="#home" class="nav-logo" aria-label="Creative Studio Home">
+        <div class="nav-logo-icon">✦</div>
+        <div class="nav-logo-text">Aura<span>Craft</span></div>
+      </a>
+
+      <!-- Mobile Navigation Hamburger Button -->
+      <label for="nav-toggle" class="nav-toggle-label" aria-label="Toggle navigation menu" tabindex="0" role="button">
+        <span></span>
+        <span></span>
+        <span></span>
+      </label>
+
+      <!-- Navigation Links Menu -->
+      <ul class="nav-menu">
+        <li class="nav-item">
+          <a href="#home" class="nav-link active">
+            Home
+            <span class="ripple-wave-effect"></span>
+            <span class="nav-link-indicator"></span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="#work" class="nav-link">
+            Work
+            <span class="ripple-wave-effect"></span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="#services" class="nav-link">
+            Services
+            <span class="ripple-wave-effect"></span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="#about" class="nav-link">
+            About
+            <span class="ripple-wave-effect"></span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="#contact" class="nav-link">
+            Contact
+            <span class="ripple-wave-effect"></span>
+          </a>
+        </li>
+      </ul>
+
+      <!-- Action Button -->
+      <div class="nav-actions">
+        <a href="#contact" class="nav-cta">
+          Let's Talk
+        </a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Main Hero & Feature Showcase -->
+  <main class="main-content" id="home">
+    <section class="hero-section">
+      <div class="badge-status">
+        <span class="status-dot"></span> Available for Q3/Q4 Creative Commissions
+      </div>
+      
+      <h1 class="hero-title">
+        Crafting Digital Experiences with <br>
+        <span class="gradient-text">CSS Ripple-Wave Motion</span>
+      </h1>
+
+      <p class="hero-description">
+        An interactive, ultra-fluid navigation bar engineered specifically for modern creative portfolios. Featuring pure CSS3 keyframe ripple waves, GPU-accelerated transforms, and high-contrast keyboard accessibility.
+      </p>
+
+      <div class="hero-actions">
+        <a href="#work" class="nav-cta" style="padding: 0.85rem 2rem; font-size: 1rem;">Explore Work</a>
+        <a href="#about" class="btn-secondary">View Architecture</a>
+      </div>
+    </section>
+
+    <!-- Technical Features Overview Grid -->
+    <section class="features-grid">
+      <article class="feature-card">
+        <div class="feature-icon">🌊</div>
+        <h3>CSS Keyframe Ripples</h3>
+        <p>Dynamic multi-layered radial wave animations triggered effortlessly on hover and focus-visible states without a single line of JavaScript.</p>
+      </article>
+
+      <article class="feature-card">
+        <div class="feature-icon">⚡</div>
+        <h3>GPU-Optimized Engine</h3>
+        <p>Leverages transform scale and opacity properties to guarantee 60fps rendering, avoiding layout recalculations and repaints.</p>
+      </article>
+
+      <article class="feature-card">
+        <div class="feature-icon">♿</div>
+        <h3>Accessibility First</h3>
+        <p>Includes high-contrast focus rings for keyboard navigation, semantic HTML5 landmarks, and full support for prefers-reduced-motion.</p>
+      </article>
+
+      <article class="feature-card">
+        <div class="feature-icon">📱</div>
+        <h3>Zero-JS Mobile Menu</h3>
+        <p>Pure CSS checkbox technique provides a sleek, responsive overlay menu that functions perfectly across all devices and browsers.</p>
+      </article>
+    </section>
+  </main>
+
+  <!-- Page Footer -->
+  <footer class="portfolio-footer">
+    <p>&copy; 2026 AuraCraft Portfolio Layouts. EaseMotion-css Submission Issue #54549.</p>
+  </footer>
+
+</body>
+</html>
