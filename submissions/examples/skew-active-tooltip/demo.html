@@ -1,29 +1,170 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CSS Skew-Active Tooltip (Accessible Layout) - EaseMotion</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Creative Portfolio Card with Skew-Active Tooltip</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="portfolio-container">
+      <!-- Creative Portfolio Card -->
+      <article class="portfolio-card">
+        <!-- Header Section -->
+        <header class="portfolio-card-header">
+          <div class="artist-profile">
+            <div class="artist-avatar" aria-hidden="true">
+              <span class="avatar-initials">KV</span>
+            </div>
+            <div class="artist-meta">
+              <h1 class="artist-name">Kira Vance</h1>
+              <p class="artist-role">Lead Motion & UI Designer</p>
+            </div>
+          </div>
+          <span class="availability-badge">
+            <span class="badge-dot" aria-hidden="true"></span>
+            Available
+          </span>
+        </header>
 
-  <main class="accessible-panel">
-    <h2 style="margin-top: 0; font-size: 1.25rem;">Server Infrastructure</h2>
-    <p style="color: #64748b; font-size: 0.9rem; margin-bottom: 1.5rem;">
-      Hover or keyboard tab to view deployment configurations safely.
-    </p>
+        <!-- Card Body / Project Highlight -->
+        <div class="portfolio-card-body">
+          <div class="project-preview">
+            <span class="project-tag">Featured Case Study</span>
+            <h2 class="project-title">Aura Interactive Studio</h2>
+            <p class="project-description">
+              A next-generation design showcase blending kinetic motion,
+              glassmorphism, and responsive micro-interactions.
+            </p>
+          </div>
 
-    <div class="tooltip-wrapper">
-      <button class="tooltip-trigger" aria-describedby="skew-tooltip-desc">
-        Check Node Storage
-      </button>
-      
-      <div class="tooltip-box" id="skew-tooltip-desc" role="tooltip">
-        <strong>Storage Capacity:</strong> 84% allocated across 12 distributed edge clusters.
-      </div>
-    </div>
-  </main>
+          <!-- Action Metrics / Buttons with Skew-Active Tooltips -->
+          <div class="portfolio-actions-grid">
+            <!-- Feature 1 -->
+            <div class="tooltip-wrapper">
+              <button
+                type="button"
+                class="action-btn"
+                aria-describedby="tooltip-motion"
+              >
+                <svg
+                  class="btn-icon"
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <polygon
+                    points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"
+                  ></polygon>
+                </svg>
+                <span>60 FPS Motion</span>
+              </button>
+              <div id="tooltip-motion" class="skew-tooltip" role="tooltip">
+                <span class="tooltip-heading">Kinetic Engine</span>
+                <p class="tooltip-content">
+                  GPU-accelerated CSS transitions with dynamic skew
+                  interpolation on entry.
+                </p>
+              </div>
+            </div>
 
-</body>
+            <!-- Feature 2 -->
+            <div class="tooltip-wrapper">
+              <button
+                type="button"
+                class="action-btn"
+                aria-describedby="tooltip-design"
+              >
+                <svg
+                  class="btn-icon"
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <rect x="3" y="3" width="7" height="7"></rect>
+                  <rect x="14" y="3" width="7" height="7"></rect>
+                  <rect x="14" y="14" width="7" height="7"></rect>
+                  <rect x="3" y="14" width="7" height="7"></rect>
+                </svg>
+                <span>42 Components</span>
+              </button>
+              <div id="tooltip-design" class="skew-tooltip" role="tooltip">
+                <span class="tooltip-heading">Design Tokens</span>
+                <p class="tooltip-content">
+                  Modular cards, glass popups, responsive grids, and accessible
+                  components.
+                </p>
+              </div>
+            </div>
+
+            <!-- Feature 3 -->
+            <div class="tooltip-wrapper">
+              <button
+                type="button"
+                class="action-btn"
+                aria-describedby="tooltip-a11y"
+              >
+                <svg
+                  class="btn-icon"
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                </svg>
+                <span>A11y Verified</span>
+              </button>
+              <div id="tooltip-a11y" class="skew-tooltip" role="tooltip">
+                <span class="tooltip-heading">Accessibility</span>
+                <p class="tooltip-content">
+                  Keyboard focusable, WCAG AA contrast ratio, and reduced motion
+                  compliant.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card Footer -->
+        <footer class="portfolio-card-footer">
+          <a href="#case-study" class="cta-link">
+            <span>Explore Case Study</span>
+            <svg
+              class="link-arrow"
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </a>
+        </footer>
+      </article>
+    </main>
+  </body>
 </html>
