@@ -3,71 +3,179 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CSS Bounce-Pulse Card Grid</title>
+  <title>CSS Bounce-Pulse Card Grid - E-Commerce Checkout - EaseMotion-css</title>
+  <meta name="description" content="A premium CSS-only Bounce-Pulse product card grid design template for e-commerce checkout page interactions. Fully responsive, glassmorphism layout, and accessible.">
   <link rel="stylesheet" href="style.css">
+  
+  <!-- Font Preconnect & Outfit Font Loading -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <div class="checkout-container">
-    <header class="checkout-header">
-      <h2>Select Payment Method</h2>
-      <p>Choose your preferred way to pay</p>
+
+  <!-- Ambient Glow Backdrop -->
+  <div class="glow-backdrop" aria-hidden="true"></div>
+
+  <!-- Main Container -->
+  <div class="grid-container">
+    <header class="grid-header">
+      <h1>Premium Add-ons</h1>
+      <p>Enhance your checkout experience with our highly recommended accessories and software upgrades.</p>
     </header>
-    
-    <div class="card-grid">
-      <!-- Card 1 -->
-      <label class="card-item">
-        <input type="radio" name="payment" class="card-input" checked>
-        <div class="card-content">
-          <div class="card-icon">💳</div>
-          <div class="card-details">
-            <span class="card-title">Credit Card</span>
-            <span class="card-desc">Visa, Mastercard, Amex</span>
-          </div>
-          <div class="card-indicator"></div>
-        </div>
-      </label>
 
-      <!-- Card 2 -->
-      <label class="card-item">
-        <input type="radio" name="payment" class="card-input">
-        <div class="card-content">
-          <div class="card-icon">📱</div>
-          <div class="card-details">
-            <span class="card-title">Digital Wallet</span>
-            <span class="card-desc">Apple Pay, Google Pay</span>
-          </div>
-          <div class="card-indicator"></div>
+    <main class="product-grid" aria-label="Recommended upgrades and accessories">
+      <!-- Product Card 1 -->
+      <article class="product-card">
+        <div class="product-image-area">
+          <span class="discount-badge">Save 20%</span>
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+            <line x1="8" y1="21" x2="16" y2="21"></line>
+            <line x1="12" y1="17" x2="12" y2="21"></line>
+          </svg>
         </div>
-      </label>
+        <div class="product-info">
+          <h2 class="product-title">UltraWide Monitor</h2>
+          <p class="product-description">34-inch curved IPS panel with 144Hz refresh rate, perfect for productivity.</p>
+          <div class="product-pricing">
+            <span class="price-current">$399.00</span>
+            <span class="price-original">$499.00</span>
+          </div>
+          <div class="product-rating" aria-label="Rating: 4.8 out of 5 stars based on 124 reviews">
+            <div class="rating-stars" aria-hidden="true">★★★★★</div>
+            <span class="rating-count">(124)</span>
+          </div>
+          <button class="btn-add-cart">Add to Cart</button>
+        </div>
+      </article>
 
-      <!-- Card 3 -->
-      <label class="card-item">
-        <input type="radio" name="payment" class="card-input">
-        <div class="card-content">
-          <div class="card-icon">🏦</div>
-          <div class="card-details">
-            <span class="card-title">Bank Transfer</span>
-            <span class="card-desc">Direct account debit</span>
-          </div>
-          <div class="card-indicator"></div>
+      <!-- Product Card 2 -->
+      <article class="product-card">
+        <div class="product-image-area">
+          <span class="discount-badge">Save 15%</span>
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+            <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+          </svg>
         </div>
-      </label>
-      
-      <!-- Card 4 -->
-      <label class="card-item">
-        <input type="radio" name="payment" class="card-input">
-        <div class="card-content">
-          <div class="card-icon">🪙</div>
-          <div class="card-details">
-            <span class="card-title">Crypto</span>
-            <span class="card-desc">Bitcoin, Ethereum, USDT</span>
+        <div class="product-info">
+          <h2 class="product-title">Noise-Canceling Headset</h2>
+          <p class="product-description">Studio quality audio with smart active noise cancellation and voice pickup.</p>
+          <div class="product-pricing">
+            <span class="price-current">$169.00</span>
+            <span class="price-original">$199.00</span>
           </div>
-          <div class="card-indicator"></div>
+          <div class="product-rating" aria-label="Rating: 4.7 out of 5 stars based on 86 reviews">
+            <div class="rating-stars" aria-hidden="true">★★★★★</div>
+            <span class="rating-count">(86)</span>
+          </div>
+          <button class="btn-add-cart">Add to Cart</button>
         </div>
-      </label>
-    </div>
-    
-    <button class="checkout-btn">Continue to Review</button>
+      </article>
+
+      <!-- Product Card 3 -->
+      <article class="product-card">
+        <div class="product-image-area">
+          <span class="discount-badge">Save 10%</span>
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+            <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+          </svg>
+        </div>
+        <div class="product-info">
+          <h2 class="product-title">Travel Hard Drive</h2>
+          <p class="product-description">2TB rugged solid-state drive with high speed USB-C file transfer.</p>
+          <div class="product-pricing">
+            <span class="price-current">$89.00</span>
+            <span class="price-original">$99.00</span>
+          </div>
+          <div class="product-rating" aria-label="Rating: 4.6 out of 5 stars based on 54 reviews">
+            <div class="rating-stars" aria-hidden="true">★★★★★</div>
+            <span class="rating-count">(54)</span>
+          </div>
+          <button class="btn-add-cart">Add to Cart</button>
+        </div>
+      </article>
+
+      <!-- Product Card 4 -->
+      <article class="product-card">
+        <div class="product-image-area">
+          <span class="discount-badge">Save 30%</span>
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+            <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+          </svg>
+        </div>
+        <div class="product-info">
+          <h2 class="product-title">Antivirus Suite Pro</h2>
+          <p class="product-description">1-year protection license for up to 5 devices against internet threats.</p>
+          <div class="product-pricing">
+            <span class="price-current">$34.99</span>
+            <span class="price-original">$49.99</span>
+          </div>
+          <div class="product-rating" aria-label="Rating: 4.9 out of 5 stars based on 215 reviews">
+            <div class="rating-stars" aria-hidden="true">★★★★★</div>
+            <span class="rating-count">(215)</span>
+          </div>
+          <button class="btn-add-cart">Add to Cart</button>
+        </div>
+      </article>
+
+      <!-- Product Card 5 -->
+      <article class="product-card">
+        <div class="product-image-area">
+          <span class="discount-badge">Save 25%</span>
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+          </svg>
+        </div>
+        <div class="product-info">
+          <h2 class="product-title">Cloud Backup Storage</h2>
+          <p class="product-description">Secure 500GB online storage space with automated device sync backups.</p>
+          <div class="product-pricing">
+            <span class="price-current">$14.99</span>
+            <span class="price-original">$19.99</span>
+          </div>
+          <div class="product-rating" aria-label="Rating: 4.5 out of 5 stars based on 47 reviews">
+            <div class="rating-stars" aria-hidden="true">★★★★★</div>
+            <span class="rating-count">(47)</span>
+          </div>
+          <button class="btn-add-cart">Add to Cart</button>
+        </div>
+      </article>
+
+      <!-- Product Card 6 -->
+      <article class="product-card">
+        <div class="product-image-area">
+          <span class="discount-badge">Save 5%</span>
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+            <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+            <line x1="12" y1="22.08" x2="12" y2="12"></line>
+          </svg>
+        </div>
+        <div class="product-info">
+          <h2 class="product-title">USB-C Hub Adapter</h2>
+          <p class="product-description">Multi-port aluminum adapter with HDMI, ethernet, USB 3.0 ports, and SD slots.</p>
+          <div class="product-pricing">
+            <span class="price-current">$28.50</span>
+            <span class="price-original">$29.99</span>
+          </div>
+          <div class="product-rating" aria-label="Rating: 4.4 out of 5 stars based on 32 reviews">
+            <div class="rating-stars" aria-hidden="true">★★★★★</div>
+            <span class="rating-count">(32)</span>
+          </div>
+          <button class="btn-add-cart">Add to Cart</button>
+        </div>
+      </article>
+    </main>
   </div>
+
+  <!-- Footer Section -->
+  <footer class="footer">
+    <p>&copy; 2026 EaseMotion CSS. Open Source CSS Library.</p>
+  </footer>
+
 </body>
 </html>
