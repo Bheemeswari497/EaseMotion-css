@@ -1,0 +1,487 @@
+/* CSS Quantum Teleportation Photon-Number Resolving Detectors (PNRD-110) #75781 */
+:root {
+  --bg-color: #03131a;
+  --panel-bg: #061e27;
+  --text-main: #f0fdf4;
+  --text-muted: #6ee7b7;
+  --border-color: rgba(16, 185, 129, 0.25);
+  
+  --emerald-bright: #10b981;
+  --emerald-glow: rgba(16, 185, 129, 0.45);
+  --cyan-bright: #06b6d4;
+  --cyan-glow: rgba(6, 182, 212, 0.4);
+  --teal-accent: #14b8a6;
+  --amber-warning: #f59e0b;
+
+  --shadow-outer: 0 20px 40px rgba(0, 0, 0, 0.6), 0 0 30px rgba(16, 185, 129, 0.15);
+  --shadow-inset: inset 0 2px 8px rgba(16, 185, 129, 0.2);
+  
+  --font-family: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'Space Mono', monospace;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg-color: #e6f4f1;
+    --panel-bg: #ffffff;
+    --text-main: #064e3b;
+    --text-muted: #047857;
+    --border-color: rgba(16, 185, 129, 0.3);
+    
+    --emerald-bright: #059669;
+    --emerald-glow: rgba(5, 150, 105, 0.35);
+    --cyan-bright: #0284c7;
+    --cyan-glow: rgba(2, 132, 199, 0.3);
+    --teal-accent: #0d9488;
+    
+    --shadow-outer: 0 16px 32px rgba(6, 78, 59, 0.12), 0 0 20px rgba(5, 150, 105, 0.1);
+    --shadow-inset: inset 0 2px 6px rgba(5, 150, 105, 0.15);
+  }
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-family);
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem 1rem;
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+.pnrd-dashboard-wrapper {
+  width: 100%;
+  max-width: 520px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+.pnrd-header {
+  text-align: center;
+}
+
+.header-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  font-family: var(--font-mono);
+  letter-spacing: 0.1em;
+  padding: 0.4rem 0.9rem;
+  border-radius: 50px;
+  background: var(--panel-bg);
+  color: var(--emerald-bright);
+  border: 1px solid var(--border-color);
+  box-shadow: 0 0 12px var(--emerald-glow);
+  margin-bottom: 0.75rem;
+}
+
+.badge-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--emerald-bright);
+  box-shadow: 0 0 8px var(--emerald-bright);
+  animation: badgePulse 2s ease-in-out infinite;
+}
+
+@keyframes badgePulse {
+  0%, 100% { opacity: 0.4; transform: scale(0.8); }
+  50% { opacity: 1; transform: scale(1.2); }
+}
+
+.pnrd-header h1 {
+  font-size: 2.1rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.02em;
+}
+
+.pnrd-header p {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+/* Quantum Stage Main Chassis */
+.pnrd-main-stage {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+.pnrd-radio {
+  display: none;
+}
+
+.quantum-detector-chassis {
+  position: relative;
+  width: 100%;
+  background: var(--panel-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 28px;
+  padding: 2.2rem 1.8rem;
+  box-shadow: var(--shadow-outer);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  overflow: hidden;
+}
+
+/* Grid Overlay */
+.quantum-grid-bg {
+  position: absolute;
+  inset: 0;
+  background-image: 
+    radial-gradient(circle at 50% 35%, var(--emerald-glow) 0%, transparent 60%),
+    linear-gradient(rgba(16, 185, 129, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(16, 185, 129, 0.05) 1px, transparent 1px);
+  background-size: 100% 100%, 20px 20px, 20px 20px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Outer Ring Assembly */
+.detector-ring-assembly {
+  position: relative;
+  width: 220px;
+  height: 220px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 5;
+}
+
+.ring-track {
+  position: absolute;
+  border-radius: 50%;
+  border: 2px dashed var(--emerald-bright);
+  opacity: 0.5;
+  will-change: transform;
+}
+
+.ring-outer {
+  inset: 0;
+  animation: quantumRingSpin 16s linear infinite;
+}
+
+.ring-middle {
+  inset: 22px;
+  border-style: solid;
+  border-color: var(--cyan-bright) transparent var(--cyan-bright) transparent;
+  animation: quantumRingSpin 10s linear infinite reverse;
+}
+
+.ring-inner {
+  inset: 44px;
+  border-style: dotted;
+  border-color: var(--emerald-bright);
+  animation: quantumRingSpin 6s linear infinite;
+}
+
+@keyframes quantumRingSpin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Photon Beams */
+.photon-beam {
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--emerald-bright), transparent);
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+.beam-alpha { transform: rotate(45deg); }
+.beam-beta { transform: rotate(-45deg); }
+
+/* Quantum Core Chamber */
+.quantum-core-chamber {
+  position: relative;
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  background: var(--panel-bg);
+  border: 2px solid var(--emerald-bright);
+  box-shadow: 0 0 20px var(--emerald-glow), var(--shadow-inset);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+}
+
+.core-flux-orb {
+  position: relative;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.orb-core-pulse {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--emerald-bright);
+  box-shadow: 0 0 16px var(--emerald-bright);
+  animation: orbPulse 2.5s ease-in-out infinite alternate;
+}
+
+@keyframes orbPulse {
+  0% { transform: scale(0.85); filter: drop-shadow(0 0 4px var(--emerald-bright)); }
+  100% { transform: scale(1.15); filter: drop-shadow(0 0 16px var(--cyan-bright)); }
+}
+
+.orb-ring-spin {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 2px solid var(--cyan-bright);
+  border-top-color: transparent;
+  animation: quantumRingSpin 2s linear infinite;
+}
+
+.fock-state-display {
+  margin-top: 0.35rem;
+  text-align: center;
+  font-family: var(--font-mono);
+}
+
+.fock-label {
+  display: block;
+  font-size: 0.6rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  letter-spacing: 0.08em;
+}
+
+.fock-value {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--emerald-bright);
+  display: none;
+}
+
+/* Sensor Grid Channels */
+.pnrd-sensor-grid {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.85rem;
+  z-index: 5;
+}
+
+.sensor-channel {
+  background: rgba(16, 185, 129, 0.05);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  padding: 0.75rem 0.9rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.ch-id {
+  font-size: 0.7rem;
+  font-family: var(--font-mono);
+  font-weight: 700;
+  color: var(--text-muted);
+}
+
+.ch-meter {
+  width: 100%;
+  height: 6px;
+  background: rgba(16, 185, 129, 0.15);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.ch-bar {
+  display: block;
+  height: 100%;
+  width: 50%;
+  background: linear-gradient(90deg, var(--emerald-bright), var(--cyan-bright));
+  border-radius: 10px;
+  transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.ch-readout {
+  font-size: 0.72rem;
+  font-family: var(--font-mono);
+  color: var(--text-main);
+}
+
+/* Telemetry Bar */
+.telemetry-bar {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--border-color);
+  z-index: 5;
+}
+
+.telemetry-status {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.status-indicator {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--emerald-bright);
+  box-shadow: 0 0 10px var(--emerald-bright);
+}
+
+.status-text {
+  font-size: 0.78rem;
+  font-family: var(--font-mono);
+  font-weight: 700;
+  display: none;
+}
+
+.efficiency-metric {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  font-family: var(--font-mono);
+}
+
+.metric-label {
+  font-size: 0.62rem;
+  color: var(--text-muted);
+}
+
+.metric-val {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--cyan-bright);
+}
+
+/* Triggered Radio States */
+#pnrd-idle:checked ~ .quantum-detector-chassis .val-idle { display: block; }
+#pnrd-idle:checked ~ .quantum-detector-chassis .text-idle { display: block; color: var(--text-muted); }
+#pnrd-idle:checked ~ .quantum-detector-chassis .status-indicator { background: var(--text-muted); box-shadow: none; }
+#pnrd-idle:checked ~ .quantum-detector-chassis .ch-bar { width: 25%; }
+
+#pnrd-entangle:checked ~ .quantum-detector-chassis .val-entangle { display: block; }
+#pnrd-entangle:checked ~ .quantum-detector-chassis .text-entangle { display: block; color: var(--emerald-bright); }
+#pnrd-entangle:checked ~ .quantum-detector-chassis .ch-bar { width: 75%; }
+
+#pnrd-teleport:checked ~ .quantum-detector-chassis .val-teleport { display: block; }
+#pnrd-teleport:checked ~ .quantum-detector-chassis .text-teleport { display: block; color: var(--cyan-bright); }
+#pnrd-teleport:checked ~ .quantum-detector-chassis .ch-bar { width: 90%; }
+#pnrd-teleport:checked ~ .quantum-detector-chassis .quantum-core-chamber {
+  animation: teleportGlowPulse 1.2s ease-in-out infinite alternate;
+}
+
+@keyframes teleportGlowPulse {
+  0% { box-shadow: 0 0 12px var(--emerald-glow); }
+  100% { box-shadow: 0 0 32px var(--cyan-bright), inset 0 0 16px var(--cyan-glow); }
+}
+
+#pnrd-resolve:checked ~ .quantum-detector-chassis .val-resolve { display: block; }
+#pnrd-resolve:checked ~ .quantum-detector-chassis .text-resolve { display: block; color: var(--emerald-bright); }
+#pnrd-resolve:checked ~ .quantum-detector-chassis .ch-bar { width: 100%; background: var(--emerald-bright); }
+
+/* Command Controls Panel */
+.pnrd-control-panel {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.panel-title {
+  font-size: 0.82rem;
+  font-weight: 600;
+  font-family: var(--font-mono);
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.btn-group {
+  display: flex;
+  gap: 0.6rem;
+  width: 100%;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.pnrd-btn {
+  flex: 1;
+  min-width: 85px;
+  padding: 0.8rem 0.6rem;
+  text-align: center;
+  font-size: 0.82rem;
+  font-family: var(--font-mono);
+  font-weight: 700;
+  color: var(--text-main);
+  background: var(--panel-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  cursor: pointer;
+  user-select: none;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+}
+
+.pnrd-btn:hover {
+  color: var(--emerald-bright);
+  border-color: var(--emerald-bright);
+  transform: translateY(-2px);
+  box-shadow: 0 0 14px var(--emerald-glow);
+}
+
+.pnrd-btn:focus-visible {
+  outline: 2px solid var(--emerald-bright);
+  outline-offset: 4px;
+}
+
+#pnrd-idle:checked ~ .pnrd-control-panel .btn-idle,
+#pnrd-entangle:checked ~ .pnrd-control-panel .btn-entangle,
+#pnrd-teleport:checked ~ .pnrd-control-panel .btn-teleport,
+#pnrd-resolve:checked ~ .pnrd-control-panel .btn-resolve {
+  background: rgba(16, 185, 129, 0.15);
+  border-color: var(--emerald-bright);
+  color: var(--emerald-bright);
+  box-shadow: inset 0 0 10px var(--emerald-glow);
+  transform: translateY(0);
+}
+
+/* Accessibility & Prefers Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .badge-dot,
+  .ring-track,
+  .orb-core-pulse,
+  .orb-ring-spin,
+  .quantum-core-chamber,
+  .ch-bar,
+  .pnrd-btn {
+    animation: none !important;
+    transition: none !important;
+  }
+}
