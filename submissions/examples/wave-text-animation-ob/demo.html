@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Pure CSS Wave Text Animation component with staggered character keyframes, custom properties, accessibility support, and dark mode.">
+    <title>EaseMotion CSS — Wave Text Animation (#86795)</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
+
+    <main id="main-content" class="container">
+        <!-- Hero Header -->
+        <header class="hero">
+            <p class="eyebrow">EaseMotion Component Collection</p>
+            <h1 class="hero-title">
+                <span class="wave-text" aria-label="Wave Text Animation">
+                    <span aria-hidden="true">
+                        <span class="wave-char" style="--i: 0">W</span>
+                        <span class="wave-char" style="--i: 1">a</span>
+                        <span class="wave-char" style="--i: 2">v</span>
+                        <span class="wave-char" style="--i: 3">e</span>
+                        <span class="wave-space"></span>
+                        <span class="wave-char" style="--i: 4">T</span>
+                        <span class="wave-char" style="--i: 5">e</span>
+                        <span class="wave-char" style="--i: 6">x</span>
+                        <span class="wave-char" style="--i: 7">t</span>
+                    </span>
+                </span>
+            </h1>
+            <p class="hero-subtitle">
+                A fluid, pure HTML/CSS character wave animation using CSS custom variables and staggered animation delays.
+            </p>
+        </header>
+
+        <!-- Main Interactive Showcase Card -->
+        <section class="card showcase-card" aria-labelledby="showcase-title">
+            <div class="card-header">
+                <div class="status-badge">
+                    <span class="status-dot" aria-hidden="true"></span>
+                    <span id="showcase-title">Live Preview</span>
+                </div>
+                <span class="tag">Pure CSS</span>
+            </div>
+
+            <div class="wave-stage" aria-label="Animated text display reading EaseMotion">
+                <span class="wave-text wave-text--hero" aria-label="EaseMotion">
+                    <span aria-hidden="true">
+                        <span class="wave-char" style="--i: 0">E</span>
+                        <span class="wave-char" style="--i: 1">a</span>
+                        <span class="wave-char" style="--i: 2">s</span>
+                        <span class="wave-char" style="--i: 3">e</span>
+                        <span class="wave-char" style="--i: 4">M</span>
+                        <span class="wave-char" style="--i: 5">o</span>
+                        <span class="wave-char" style="--i: 6">t</span>
+                        <span class="wave-char" style="--i: 7">i</span>
+                        <span class="wave-char" style="--i: 8">o</span>
+                        <span class="wave-char" style="--i: 9">n</span>
+                    </span>
+                </span>
+            </div>
+
+            <div class="feature-bar">
+                <div class="feature-item">
+                    <span class="feature-label">Engine</span>
+                    <strong>Pure CSS Keyframes</strong>
+                </div>
+                <div class="feature-item">
+                    <span class="feature-label">Accessibility</span>
+                    <strong>Screen Reader Safe</strong>
+                </div>
+                <div class="feature-item">
+                    <span class="feature-label">Adaptivity</span>
+                    <strong>Dark Mode &amp; Reduced Motion</strong>
+                </div>
+            </div>
+        </section>
+
+        <!-- Style Variations Grid -->
+        <section class="variations-section">
+            <h2 class="section-title">Animation Variations</h2>
+            <div class="grid">
+                <!-- Variant 1: Gradient Shift -->
+                <article class="card variant-card">
+                    <div class="variant-header">
+                        <h3>Gradient Wave</h3>
+                        <span class="badge">Vibrant</span>
+                    </div>
+                    <div class="variant-stage">
+                        <span class="wave-text wave-text--gradient" aria-label="Gradient">
+                            <span aria-hidden="true">
+                                <span class="wave-char" style="--i: 0">G</span>
+                                <span class="wave-char" style="--i: 1">r</span>
+                                <span class="wave-char" style="--i: 2">a</span>
+                                <span class="wave-char" style="--i: 3">d</span>
+                                <span class="wave-char" style="--i: 4">i</span>
+                                <span class="wave-char" style="--i: 5">e</span>
+                                <span class="wave-char" style="--i: 6">n</span>
+                                <span class="wave-char" style="--i: 7">t</span>
+                            </span>
+                        </span>
+                    </div>
+                    <p class="variant-desc">Color shift gradient keyframes synchronized with vertical sine oscillation.</p>
+                </article>
+
+                <!-- Variant 2: Neon Glow -->
+                <article class="card variant-card">
+                    <div class="variant-header">
+                        <h3>Neon Glow Wave</h3>
+                        <span class="badge">Glow</span>
+                    </div>
+                    <div class="variant-stage">
+                        <span class="wave-text wave-text--neon" aria-label="Neon Wave">
+                            <span aria-hidden="true">
+                                <span class="wave-char" style="--i: 0">N</span>
+                                <span class="wave-char" style="--i: 1">e</span>
+                                <span class="wave-char" style="--i: 2">o</span>
+                                <span class="wave-char" style="--i: 3">n</span>
+                                <span class="wave-space"></span>
+                                <span class="wave-char" style="--i: 4">W</span>
+                                <span class="wave-char" style="--i: 5">a</span>
+                                <span class="wave-char" style="--i: 6">v</span>
+                                <span class="wave-char" style="--i: 7">e</span>
+                            </span>
+                        </span>
+                    </div>
+                    <p class="variant-desc">Pulsating drop-shadow text glow with dynamic phase displacement.</p>
+                </article>
+
+                <!-- Variant 3: Spring Bounce -->
+                <article class="card variant-card">
+                    <div class="variant-header">
+                        <h3>Spring Elastic</h3>
+                        <span class="badge">Playful</span>
+                    </div>
+                    <div class="variant-stage">
+                        <span class="wave-text wave-text--bounce" aria-label="Elastic">
+                            <span aria-hidden="true">
+                                <span class="wave-char" style="--i: 0">E</span>
+                                <span class="wave-char" style="--i: 1">l</span>
+                                <span class="wave-char" style="--i: 2">a</span>
+                                <span class="wave-char" style="--i: 3">s</span>
+                                <span class="wave-char" style="--i: 4">t</span>
+                                <span class="wave-char" style="--i: 5">i</span>
+                                <span class="wave-char" style="--i: 6">c</span>
+                            </span>
+                        </span>
+                    </div>
+                    <p class="variant-desc">Cubic-bezier spring easing with subtle rotational tilt on peak amplitude.</p>
+                </article>
+            </div>
+        </section>
+
+        <!-- Usage Documentation snippet -->
+        <section class="docs-section">
+            <h2 class="section-title">Implementation Pattern</h2>
+            <div class="card code-card">
+                <pre><code>&lt;!-- Accessible Wave Text Markup --&gt;
+&lt;span class="wave-text" aria-label="Wave Text"&gt;
+  &lt;span aria-hidden="true"&gt;
+    &lt;span class="wave-char" style="--i: 0"&gt;W&lt;/span&gt;
+    &lt;span class="wave-char" style="--i: 1"&gt;a&lt;/span&gt;
+    &lt;span class="wave-char" style="--i: 2"&gt;v&lt;/span&gt;
+    &lt;span class="wave-char" style="--i: 3"&gt;e&lt;/span&gt;
+  &lt;/span&gt;
+&lt;/span&gt;</code></pre>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>EaseMotion CSS Library — Issue #86795 Component Submission</p>
+    </footer>
+</body>
+</html>

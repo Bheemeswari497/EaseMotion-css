@@ -1,0 +1,449 @@
+/* EaseMotion CSS — Wave Text Animation Component (#86795) */
+
+:root {
+    /* Customization Tokens */
+    --wave-duration: 1.6s;
+    --wave-delay-step: 0.07s;
+    --wave-amplitude: -0.45em;
+    --wave-rotate: -4deg;
+
+    /* Color Palette — Light Mode */
+    --bg-page: #f8fafc;
+    --bg-surface: #ffffff;
+    --border-surface: rgba(226, 232, 240, 0.8);
+    --border-subtle: rgba(148, 163, 184, 0.2);
+    --text-main: #0f172a;
+    --text-muted: #64748b;
+    --accent-primary: #4f46e5;
+    --accent-secondary: #06b6d4;
+    --accent-glow: rgba(79, 70, 229, 0.15);
+    --code-bg: #1e293b;
+    --code-text: #e2e8f0;
+    --card-shadow: 0 20px 40px -15px rgba(15, 23, 42, 0.07), 0 0 1px 1px rgba(15, 23, 42, 0.03);
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bg-page: #090d16;
+        --bg-surface: #111827;
+        --border-surface: rgba(255, 255, 255, 0.08);
+        --border-subtle: rgba(255, 255, 255, 0.05);
+        --text-main: #f8fafc;
+        --text-muted: #94a3b8;
+        --accent-primary: #818cf8;
+        --accent-secondary: #22d3ee;
+        --accent-glow: rgba(129, 140, 248, 0.2);
+        --code-bg: #0b0f19;
+        --code-text: #cbd5e1;
+        --card-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    }
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    color: var(--text-main);
+    background: 
+        radial-gradient(ellipse 80% 50% at 50% -20%, var(--accent-glow), transparent 70%),
+        var(--bg-page);
+    line-height: 1.6;
+}
+
+/* Accessibility Skip Link */
+.skip-link {
+    position: fixed;
+    top: 1rem;
+    left: 1rem;
+    z-index: 999;
+    padding: 0.75rem 1.25rem;
+    background: var(--accent-primary);
+    color: #ffffff;
+    font-weight: 700;
+    border-radius: 0.5rem;
+    text-decoration: none;
+    transform: translateY(-150%);
+    transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.skip-link:focus {
+    transform: translateY(0);
+    outline: 3px solid var(--accent-secondary);
+    outline-offset: 2px;
+}
+
+.container {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 4rem 1.5rem;
+}
+
+/* Hero Section */
+.hero {
+    text-align: center;
+    margin-bottom: 3.5rem;
+}
+
+.eyebrow {
+    font-size: 0.85rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--accent-primary);
+    margin-bottom: 0.75rem;
+}
+
+.hero-title {
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    font-weight: 800;
+    margin: 0 0 1rem 0;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+}
+
+.hero-subtitle {
+    font-size: clamp(1.05rem, 2vw, 1.25rem);
+    color: var(--text-muted);
+    max-width: 640px;
+    margin: 0 auto;
+}
+
+/* Base Wave Text Styles */
+.wave-text {
+    display: inline-flex;
+    align-items: baseline;
+    font-weight: 800;
+}
+
+.wave-char {
+    display: inline-block;
+    will-change: transform;
+    animation: ease-wave-motion var(--wave-duration) cubic-bezier(0.45, 0, 0.55, 1) infinite;
+    animation-delay: calc(var(--i) * var(--wave-delay-step));
+}
+
+.wave-space {
+    display: inline-block;
+    width: 0.32em;
+}
+
+/* Core Wave Animation Keyframes */
+@keyframes ease-wave-motion {
+    0%, 100% {
+        transform: translateY(0) rotate(0deg) scale(1);
+    }
+    30% {
+        transform: translateY(var(--wave-amplitude)) rotate(var(--wave-rotate)) scale(1.08);
+    }
+    60% {
+        transform: translateY(0) rotate(0deg) scale(1);
+    }
+}
+
+/* Showcase Card & Stage */
+.card {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-surface);
+    border-radius: 1.5rem;
+    box-shadow: var(--card-shadow);
+    overflow: hidden;
+}
+
+.showcase-card {
+    margin-bottom: 3.5rem;
+}
+
+.card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.25rem 1.75rem;
+    border-bottom: 1px solid var(--border-surface);
+    background: rgba(255, 255, 255, 0.02);
+}
+
+.status-badge {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.status-dot {
+    width: 0.6rem;
+    height: 0.6rem;
+    border-radius: 50%;
+    background: var(--accent-primary);
+    box-shadow: 0 0 0 4px var(--accent-glow);
+    animation: status-pulse 2s ease-in-out infinite;
+}
+
+@keyframes status-pulse {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.2); opacity: 0.7; }
+}
+
+.tag {
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    background: var(--accent-glow);
+    color: var(--accent-primary);
+}
+
+.wave-stage {
+    min-height: 240px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem 1.5rem;
+    background: radial-gradient(circle at center, var(--accent-glow) 0%, transparent 70%);
+}
+
+.wave-text--hero {
+    font-size: clamp(3rem, 9vw, 6rem);
+    letter-spacing: -0.04em;
+    color: var(--accent-primary);
+}
+
+/* Feature Bar */
+.feature-bar {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    border-top: 1px solid var(--border-surface);
+    background: rgba(0, 0, 0, 0.015);
+}
+
+.feature-item {
+    padding: 1.5rem;
+    border-right: 1px solid var(--border-surface);
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.feature-item:last-child {
+    border-right: none;
+}
+
+.feature-label {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-muted);
+    font-weight: 700;
+}
+
+.feature-item strong {
+    font-size: 0.95rem;
+    font-weight: 700;
+}
+
+/* Variations Grid */
+.variations-section {
+    margin-bottom: 3.5rem;
+}
+
+.section-title {
+    font-size: 1.5rem;
+    font-weight: 800;
+    margin-bottom: 1.5rem;
+    letter-spacing: -0.02em;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+.variant-card {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.variant-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 25px 45px -10px rgba(0, 0, 0, 0.12);
+}
+
+.variant-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
+
+.variant-header h3 {
+    margin: 0;
+    font-size: 1.1rem;
+    font-weight: 700;
+}
+
+.badge {
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 0.2rem 0.6rem;
+    border-radius: 0.375rem;
+    background: var(--border-surface);
+    color: var(--text-muted);
+}
+
+.variant-stage {
+    min-height: 140px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg-page);
+    border-radius: 1rem;
+    border: 1px solid var(--border-subtle);
+    margin-bottom: 1rem;
+}
+
+.variant-desc {
+    margin: 0;
+    font-size: 0.875rem;
+    color: var(--text-muted);
+}
+
+/* Variant 1: Gradient Shift */
+.wave-text--gradient .wave-char {
+    background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 2.2rem;
+    animation: ease-wave-gradient var(--wave-duration) infinite ease-in-out;
+    animation-delay: calc(var(--i) * var(--wave-delay-step));
+}
+
+@keyframes ease-wave-gradient {
+    0%, 100% {
+        transform: translateY(0) scale(1);
+        filter: hue-rotate(0deg);
+    }
+    50% {
+        transform: translateY(-0.4em) scale(1.1);
+        filter: hue-rotate(45deg);
+    }
+}
+
+/* Variant 2: Neon Glow */
+.wave-text--neon .wave-char {
+    color: var(--accent-secondary);
+    font-size: 2.2rem;
+    animation: ease-wave-neon var(--wave-duration) infinite ease-in-out;
+    animation-delay: calc(var(--i) * var(--wave-delay-step));
+}
+
+@keyframes ease-wave-neon {
+    0%, 100% {
+        transform: translateY(0);
+        text-shadow: 0 0 8px rgba(34, 211, 238, 0.4);
+    }
+    50% {
+        transform: translateY(-0.45em);
+        text-shadow: 0 0 16px rgba(34, 211, 238, 0.9), 0 0 30px rgba(34, 211, 238, 0.5);
+    }
+}
+
+/* Variant 3: Spring Bounce */
+.wave-text--bounce .wave-char {
+    color: var(--accent-primary);
+    font-size: 2.2rem;
+    animation: ease-wave-bounce 1.4s cubic-bezier(0.68, -0.6, 0.32, 1.6) infinite;
+    animation-delay: calc(var(--i) * 0.08s);
+}
+
+@keyframes ease-wave-bounce {
+    0%, 100% {
+        transform: translateY(0) rotate(0deg);
+    }
+    40% {
+        transform: translateY(-0.55em) rotate(-8deg);
+    }
+}
+
+/* Code Snippet Section */
+.docs-section {
+    margin-bottom: 4rem;
+}
+
+.code-card {
+    background: var(--code-bg);
+    padding: 1.5rem;
+    border-radius: 1rem;
+    border: 1px solid var(--border-surface);
+}
+
+.code-card pre {
+    margin: 0;
+    overflow-x: auto;
+}
+
+.code-card code {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    font-size: 0.9rem;
+    color: var(--code-text);
+    line-height: 1.5;
+}
+
+/* Footer */
+.footer {
+    text-align: center;
+    padding: 2rem 0;
+    color: var(--text-muted);
+    font-size: 0.875rem;
+    border-top: 1px solid var(--border-surface);
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .container {
+        padding: 2.5rem 1rem;
+    }
+
+    .feature-item {
+        border-right: none;
+        border-bottom: 1px solid var(--border-surface);
+    }
+
+    .feature-item:last-child {
+        border-bottom: none;
+    }
+
+    .grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Accessibility: Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    .wave-char,
+    .status-dot {
+        animation: none !important;
+        transform: none !important;
+        transition: none !important;
+    }
+}
