@@ -1,0 +1,47 @@
+name: Glassmorphism Effects FPS Benchmark Validation
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - 'benchmarks/**'
+      - '**/*.css'
+      - '.github/workflows/glassmorphism-fps-benchmark.yml'
+  pull_request:
+    branches: [ main ]
+    paths:
+      - 'benchmarks/**'
+      - '**/*.css'
+      - '.github/workflows/glassmorphism-fps-benchmark.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate-glassmorphism-fps:
+    name: Validate Glassmorphism Effects FPS Benchmark
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci || npm install
+
+      - name: Install Puppeteer
+        run: npm install --no-save puppeteer
+
+      - name: Build minified CSS bundle
+        run: npm run build
+
+      - name: Run Glassmorphism Effects FPS Benchmark
+        run: node benchmarks/glassmorphism-fps-benchmark.mjs
+        timeout-minutes: 5

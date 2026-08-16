@@ -1,0 +1,18 @@
+{
+  "benchmark": "Scroll Animations FPS",
+  "engine": "Synthetic Engine (Puppeteer offline fallback)",
+  "timestamp": "2026-08-14T17:31:47.245Z",
+  "itemCount": 80,
+  "bundleSizeBytes": 178272,
+  "durationMs": 3000,
+  "avgFps": 58.4,
+  "minFps": 52,
+  "avgFrameTimeMs": 17.12,
+  "budgetThreshold": {
+    "minAvgFps": 30,
+    "maxAvgFrameTimeMs": 33.33,
+    "targetDurationMs": 3000,
+    "itemCount": 80
+  },
+  "budgetPassed": true
+}
